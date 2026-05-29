@@ -1,16 +1,34 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pajarocontroller : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Configuración del Salto")]
+    public float fuerzaSalto = 5f;
+
+    private Rigidbody rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.VelocityChange);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ReiniciarJuego();
+    }
+    
+
+    void ReiniciarJuego()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
