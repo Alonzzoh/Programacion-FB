@@ -22,8 +22,12 @@ public class pajarocontroller : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+
     {
-        ReiniciarJuego();
+        if (collision.gameObject.CompareTag("tubo"))
+        {
+            ReiniciarJuego();
+        }
     }
     
 
