@@ -26,13 +26,13 @@ public class pajarocontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("tubo"))
         {
-            ReiniciarJuego();
+            Credits();
         }
     }
     
 
-    void ReiniciarJuego()
+    void Credits()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Credits");
     }
 }
